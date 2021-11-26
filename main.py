@@ -5,11 +5,21 @@ import mysql.connector
 # Import modules
 from setup import run_setup
 from menu import menu
+import os
 
 
 if __name__ == '__main__':
-    role = -1  # User role
-    user = {}  # User details
+    # check if cache.txt file exists
+    if os.path.isfile('cache.txt'):
+        cache = open('cache.txt', 'r')
+        user = eval(cache.readline())
+        role = eval(cache.readline())
+        cache.close()
+        print("Session restored")
+        print(f"Welcome {user['first_name']}")
+    else:
+        role = -1  # User role
+        user = {}  # User details
     db_name = 'BOOK_MY_MOVIE'
     mydb = mysql.connector.connect(
         host="localhost",

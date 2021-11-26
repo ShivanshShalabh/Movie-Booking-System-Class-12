@@ -1,0 +1,2 @@
+{'id': 1, 'username': 'Admin', 'password': '123456', 'email': 'foo@foo.com', 'first_name': 'foo', 'last_name': 'foo', 'phone_number': '1234567890', 'user_type': 'Admin', 'dob': '1111-1-1', 'date_created': '2021-11-26'}
+1

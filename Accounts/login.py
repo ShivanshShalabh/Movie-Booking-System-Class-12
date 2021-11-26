@@ -22,4 +22,8 @@ def login():
         print(f"Welcome {__main__.user['first_name']}")
     else:
         print("Login Failed\nPlease check the email and password")
+    cache = open('cache.txt', 'w')
+    cache.write(str(__main__.user)+'\n')
+    cache.write(str(__main__.role))
+    cache.close()
     return True
