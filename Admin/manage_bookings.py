@@ -18,7 +18,7 @@ def manage_bookings():
     action_choice = take_input(
         "Enter your choice: ", input_type='int', input_range=(1, 7))
     if action_choice == 1:
-        # Release a movie
+        
         movie_id = take_input(
             "Enter the movie id: ", input_type='int')
         __main__.cursor.execute(
@@ -33,7 +33,7 @@ def manage_bookings():
             "1 for Morning (11 AM)\n2 for Afternoon (2 PM)\n3 for Evening (6 PM)\n4 for night (9 PM)\nSeperate multiple choice with a comma\nYour choice: ", input_type='str')
         timings_list = timings.replace(" ", "").split(",")
         release_date_list = release_date.split("-")
-        # convert each element of release_date_list to int using map
+        
         release_date_list = list(map(int, release_date_list))
         roll_back_list = roll_back_date.split("-")
         roll_back_list = list(map(int, roll_back_list))
@@ -70,7 +70,7 @@ def manage_bookings():
             __main__.mydb.commit()
             print(f"Show scheduled successfully with id {show_id}")
     elif action_choice == 2:
-        # Cancel a show
+        
         show_id = take_input(
             "Enter the show id: ", input_type='int')
         __main__.cursor.execute(
@@ -89,7 +89,7 @@ def manage_bookings():
                     f"DELETE FROM SeatingInfo WHERE show_id = '{show_id}'")
                 __main__.mydb.commit()
     elif action_choice == 3:
-        # View bookings
+        
         __main__.cursor.execute(
             "SELECT * FROM BookingDetails")
         bookings = __main__.cursor.fetchall()
@@ -136,7 +136,7 @@ def manage_bookings():
                 print(f"Seats: ")
                 print_seating(i[2])
                 print(f"\n{'-'*20}\n")
-            # print(show_seats)
+            
     elif action_choice == 5:
         show_id = take_input(
             "Enter the show id: ", input_type='int')
@@ -153,7 +153,7 @@ def manage_bookings():
         __main__.cursor.execute(
             f"SELECT * FROM BookingDetails WHERE show_id = '{show_id}'")
         show_details = __main__.cursor.fetchone()
-        # print(show_details)
+        
         if not show_details:
             print("Show not found")
         else:
@@ -174,5 +174,5 @@ def manage_bookings():
                 print(f"\n{'-'*20}\n")
             if not movie_there:
                 print("Show not found")
-            # print(show_seats)
+            
     return True

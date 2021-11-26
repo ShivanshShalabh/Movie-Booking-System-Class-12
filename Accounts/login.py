@@ -7,7 +7,6 @@ def login():
     print("Login")
     email = take_input(
         input_statement="Enter Email-id: ", error_message="Invalid Input", input_type='email')
-
     password = take_input(
         input_statement="Enter Password: ")
     __main__.cursor.execute(
@@ -21,7 +20,6 @@ def login():
         __main__.role = 0 if __main__.user['user_type'] == 'User' else 1
         clear_screen()
         print(f"Welcome {__main__.user['first_name']}")
-        return True
     else:
         print("Login Failed\nPlease check the email and password")
-        return False
+    return True

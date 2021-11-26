@@ -1,10 +1,8 @@
 from Common.print_movie_detail import print_movie_details
 from string import ascii_uppercase
-from datetime import datetime
 from Common.print_seating import print_seating
 from take_input import take_input
 from clear_screen import clear_screen
-from Common.movie_detail_processor import movie_detail_processor
 import __main__
 
 
@@ -43,8 +41,6 @@ def book_movie():
     user_confirmation = take_input(
         input_statement="Are you sure you want to book this show?(y/n): ")
     if user_confirmation.lower() == "y":
-        # seats_req = take_input(
-        #     "Enter the number of seats required: ", input_type='int')
         __main__.cursor.execute(
             f"SELECT * FROM SeatingInfo WHERE show_id = {user_show_id}")
         seats = __main__.cursor.fetchone()
@@ -62,9 +58,6 @@ def book_movie():
                 if date not in available_time:
                     available_time[date] = []
                 available_time[date].append(time)
-                # else:
-                #     available_time[date] = '12'
-                # available_time[date] = available_time[date].append(time)
 
             print("\nAvailable Timings:")
             for i in available_time.keys():
@@ -127,7 +120,6 @@ def book_movie():
                     else:
                         temp_width -= len(seating_lst[seat[1]-1][k])
 
-            # print(seating_lst)\
             for i in range(len(seating_lst)):
                 seating_lst[i] = '-'.join(seating_lst[i])
             seating_lst = '|'.join(seating_lst)
@@ -140,7 +132,6 @@ def book_movie():
                 return True
             seating_lst = seating_lst.replace('X', '1')
 
-            # print(seating_lst)
             seat_details[user_show_index][2] = seating_lst
             for ii in range(len(seat_details)):
                 seat_details[ii] = '*'.join(seat_details[ii])

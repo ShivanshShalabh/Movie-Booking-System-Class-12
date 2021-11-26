@@ -9,16 +9,16 @@ def print_seating(raw_str):
         temp_width = len(raw_str[i])-raw_str[i].count("-")
         raw_str[i] = raw_str[i].split("-")
         width = max(temp_width, width)
-        # width = max(len(raw_str[i]), width)
+        
     l = len(str(height))
     print(l*" ", end=" ")
     width_partition = [0]
     for i in raw_str[0]:
         print(
             ascii_uppercase[width_partition[-1]:width_partition[-1]+len(i)], end=" ")
-        # print(len(i))
+        
         width_partition.append(len(i)+width_partition[-1])
-    # print(width_partition)
+    
     print()
 
     for i in range(height):

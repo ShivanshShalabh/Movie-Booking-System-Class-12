@@ -32,7 +32,6 @@ def add_movie(editing=False):
     __main__.mydb.commit()
     clear_screen()
     if not editing:
-        # get auto incremented value of added movie
         __main__.cursor.execute(
             "SELECT movie_id FROM MovieDetails ORDER BY movie_id DESC LIMIT 1")
         movie_id = __main__.cursor.fetchone()[0]

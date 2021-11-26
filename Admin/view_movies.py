@@ -12,7 +12,7 @@ def view_movies():
     action_choice = take_input(
         input_statement="Your choice: ", error_message="Invalid Input", input_type='int', input_range=(1, 8))
     clear_screen()
-    if action_choice == 1:  # View all Movies
+    if action_choice == 1:  
 
         __main__.cursor.execute("SELECT * FROM MovieDetails")
         all_movies = __main__.cursor.fetchall()
@@ -25,7 +25,7 @@ def view_movies():
                 print_movie_details(movie)
             print("\n"+"-"*10+"\n")
 
-    elif action_choice == 2:  # Get movie by name
+    elif action_choice == 2:  
         movie_name = take_input(
             input_statement="Enter the name of the movie: ")
         __main__.cursor.execute(
@@ -38,7 +38,7 @@ def view_movies():
             print("\n"+"-"*10+"\n")
             print_movie_details(movie_details[0])
             print("\n"+"-"*10+"\n")
-    elif action_choice == 3 or action_choice == 6:  # Get movie by release date or roll back date
+    elif action_choice == 3 or action_choice == 6:  
         date = take_input(
             input_statement="Enter the release date of the movie: ", input_type='date')
         __main__.cursor.execute(
@@ -55,7 +55,7 @@ def view_movies():
                 print("\n"+"-"*10+"\n")
                 print_movie_details(movie)
             print("\n"+"-"*10+"\n")
-    elif action_choice == 4:  # Get movie by language
+    elif action_choice == 4:  
         language = (take_input(
             input_statement="Enter the language of the movie: ")).lower()
         __main__.cursor.execute(
@@ -75,7 +75,7 @@ def view_movies():
                 print("\n"+"-"*10+"\n")
                 print_movie_details(movie)
             print("\n"+"-"*10+"\n")
-    elif action_choice == 5:  # Get movie by rating
+    elif action_choice == 5:  
         rating = take_input(
             input_statement="Enter the rating of the movie: ", input_type='float', input_range=(0, 6))
         __main__.cursor.execute(
@@ -88,7 +88,7 @@ def view_movies():
                 print("\n"+"-"*10+"\n")
                 print_movie_details(movie)
             print("\n"+"-"*10+"\n")
-    elif action_choice == 7:  # Get movie by date added
+    elif action_choice == 7:  
         date = take_input(
             input_statement="Enter the date added of the movie: ", input_type='date')
         __main__.cursor.execute(

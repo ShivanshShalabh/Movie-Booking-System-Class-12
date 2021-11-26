@@ -3,9 +3,7 @@ from math import ceil
 
 
 def take_input(input_statement="Your choice: ", error_message="Invalid Input", input_type='str', input_range=None):
-    """
-    This function takes input from the user of specific datatype and format and returns it.
-    """
+
     input_value = input(input_statement)
     if input_type == 'str':
         if not input_range:
