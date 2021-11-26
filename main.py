@@ -1,3 +1,4 @@
+# Admin email: foo@foo.com and password: 123456
 # Import libraries
 import mysql.connector
 
@@ -5,15 +6,19 @@ import mysql.connector
 from setup import run_setup
 from menu import menu
 
+
 if __name__ == '__main__':
-    role = -1
+    role = -1  # User role
+    user = {}  # User details
     db_name = 'BOOK_MY_MOVIE'
     mydb = mysql.connector.connect(
         host="localhost",
         user="USER",
-        passwd="1234"
-        # # database="mydatabase"
+        passwd="Helloworld@123",
     )
-    menu()
     cursor = mydb.cursor()
-    run_setup()
+    run_setup()  # Create database and tables
+    while menu():  # Display menu
+        pass
+    print("Thank you for using our service!")
+    print("Hope to see you again!")
